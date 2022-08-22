@@ -159,7 +159,7 @@ def get_weather(): # 女方天气
   return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
 
 def get_weather2(): #男方天气
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city2
   res = requests.get(url).json()
   weather = res['data']['list'][0]
   dates = weather['date']
@@ -207,7 +207,7 @@ data = {"city":{"value":city},
         "high":{"value":high,"color":get_random_color()}, # 女方天气高温
         "lucky":{"value":lucky(),"color":get_random_color()}, # 女方星座
         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
-        
+         "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
 
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
@@ -223,8 +223,8 @@ data2 = {"city":{"value":city2},
         "low2":{"value":low2,"color":get_random_color()}, # 男方天气低温
         "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
         "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
+         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
         "lucky2":{"value":lucky2(),"color":get_random_color()},  # 男方星座
-        
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
 }
