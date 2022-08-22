@@ -48,6 +48,7 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature,low,high = get_weather()
+today=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 data = {
         "today":{"value":today}, #今天日期
         "weather":{"value":wea,"color":get_random_color()}, #温度
