@@ -87,6 +87,15 @@ def health():
 #     else:
 #         return ""
 
+def week(a):
+    if a==0:data = "一"
+    if a==1:data = "二"
+    if a==2:data = "三"
+    if a==3:data = "四"
+    if a==4:data = "五"
+    if a==5:data = "六"
+    if a==6:data = "日"
+    return data
 
 def lucky(): # 女方星座
   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
@@ -187,9 +196,9 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea,temperature,low,high,dates,wind = get_weather()
 wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
-week = datetime.strptime(dates,"%Y-%m-%d").weekday()
+week_math = datetime.strptime(dates,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
-        "today":{"value":dates + " "+ week}, #今天日期
+        "today":{"value":dates + " " + week(week_math)}, #今天日期
         
         "weather":{"value":wea,"color":get_random_color()}, # 女方天气
         "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
@@ -204,7 +213,7 @@ data = {"city":{"value":city},
         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
 }
 data2 = {"city":{"value":city},
-        "today":{"value":dates}, #今天日期
+        "today":{"value":dates + " " + week(week_math)}, #今天日期
         
 
         
