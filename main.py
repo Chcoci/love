@@ -1,4 +1,5 @@
-from datetime import date, datetime
+# from datetime import date, datetime
+import datetime
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
