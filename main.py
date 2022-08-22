@@ -5,23 +5,22 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
-# from requests import get, post
-# import sys
-# import os
-# import http.client, urllib
-# import json
-# from zhdate import ZhDate
-
-today = datetime.now()
-start_date = os.environ['START_DATE']
-city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
-astro = os.environ["ASTRO"]
-user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
+template_id2 = os.environ["TEMPLATE_ID2"]
+today = datetime.now()
+start_date = os.environ['START_DATE']
+city = os.environ['CITY']
+city2 = os.environ['CITY2']
+birthday = os.environ['BIRTHDAY']
+birthday2 = os.environ['BIRTHDAY2']
+astro = os.environ["ASTRO"]
+astro2 = os.environ["ASTRO2"]
+user_id = os.environ["USER_ID"]
+user_id2 = os.environ["USER_ID2"]
+
 api_key_lucky = os.environ["API_KEY_LUCKY"]
 
 #词霸每日一句
@@ -138,7 +137,14 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     week = week_list[today.isoweekday() % 7]
     # 获取在一起的日子的日期格式
 
-def get_weather():
+def get_weather(): # 女方天气
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  res = requests.get(url).json()
+  weather = res['data']['list'][0]
+  dates = weather['date']
+  return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
+
+def get_weather2(): #男方天气
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
@@ -151,6 +157,12 @@ def get_count():
 
 def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+  if next < datetime.now():
+    next = next.replace(year=next.year + 1)
+  return (next - today).days + 1
+
+def get_birthday2():
+  next = datetime.strptime(str(date.today().year) + "-" + birthday2, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days + 1
@@ -168,17 +180,42 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature,low,high,dates,wind= get_weather()
+wea,temperature,low,high,dates,wind = get_weather()
+wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
 data = {"city":{"value":city},
         "today":{"value":dates}, #今天日期
-        "weather":{"value":wea,"color":get_random_color()}, #天气
-        "wind":{"value":wind,"color":get_random_color()}, #天气
-        "temperature":{"value":temperature,"color":get_random_color()},
-        "low":{"value":low,"color":get_random_color()},
-        "high":{"value":high,"color":get_random_color()},
-        "love_days":{"value":get_count(),"color":get_random_color()},
-        "birthday_left":{"value":get_birthday(),"color":get_random_color()},
-        "words":{"value":get_words(), "color":get_random_color()},
-        "lucky":{"value":lucky(),"color":get_random_color()}}
+        
+        "weather":{"value":wea,"color":get_random_color()}, # 女方天气
+        "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
+        "temperature":{"value":temperature,"color":get_random_color()}, # 女方天气气温
+        "low":{"value":low,"color":get_random_color()}, # 女方天气低温
+        "high":{"value":high,"color":get_random_color()}, # 女方天气高温
+        "lucky":{"value":lucky(),"color":get_random_color()}, # 女方星座
+        "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
+        
+
+        "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
+        "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+}
+data2 = {"city":{"value":city},
+        "today":{"value":dates}, #今天日期
+        
+
+        
+        "weather2":{"value":wea2,"color":get_random_color()}, # 男方天气
+        "wind2":{"value":wind2,"color":get_random_color()}, # 男方天气风级
+        "temperature2":{"value":temperature2,"color":get_random_color()}, # 男方天气气温
+        "low2":{"value":low2,"color":get_random_color()}, # 男方天气低温
+        "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
+        "birthday_left2":{"value":get_birthday(),"color":get_random_color()}, # 男方生日
+        "lucky2":{"value":lucky2(),"color":get_random_color()  # 男方星座
+        
+        "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
+        "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+}
+
+
 res = wm.send_template(user_id, template_id, data)
+res2 = wm.send_template(user_id2, template_id2, data2)
 print(res)
+print(res2)
