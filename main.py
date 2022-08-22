@@ -19,11 +19,11 @@ birthday = os.environ['BIRTHDAY']
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
-
+astro = os.environ["ASTRO"]
 user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
 api_key_lucky = os.environ["API_KEY_LUCKY"]
-astro = os.environ["ASTRO"]
+
 #词霸每日一句
 def get_ciba():
     if (Whether_Eng!="否"):
