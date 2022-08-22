@@ -5,11 +5,11 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
-from requests import get, post
-import sys
-import os
-import http.client, urllib
-import json
+# from requests import get, post
+# import sys
+# import os
+# import http.client, urllib
+# import json
 # from zhdate import ZhDate
 
 today = datetime.now()
