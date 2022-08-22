@@ -187,8 +187,9 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea,temperature,low,high,dates,wind = get_weather()
 wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
+week = datetime.strptime(dates,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
-        "today":{"value":dates}, #今天日期
+        "today":{"value":dates + " "+ week}, #今天日期
         
         "weather":{"value":wea,"color":get_random_color()}, # 女方天气
         "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
