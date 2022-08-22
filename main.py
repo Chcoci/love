@@ -10,7 +10,7 @@ import sys
 import os
 import http.client, urllib
 import json
-from zhdate import ZhDate
+# from zhdate import ZhDate
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
