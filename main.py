@@ -198,7 +198,7 @@ wea,temperature,low,high,dates,wind = get_weather()
 wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
 week_math = datetime.strptime(dates,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
-        "today":{"value":dates + " " + week(week_math)}, #今天日期
+        "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
         
         "weather":{"value":wea,"color":get_random_color()}, # 女方天气
         "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
@@ -212,8 +212,8 @@ data = {"city":{"value":city},
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
 }
-data2 = {"city":{"value":city},
-        "today":{"value":dates + " " + week(week_math)}, #今天日期
+data2 = {"city":{"value":city2},
+        "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
         
 
         
@@ -222,7 +222,7 @@ data2 = {"city":{"value":city},
         "temperature2":{"value":temperature2,"color":get_random_color()}, # 男方天气气温
         "low2":{"value":low2,"color":get_random_color()}, # 男方天气低温
         "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
-        "birthday_left2":{"value":get_birthday(),"color":get_random_color()}, # 男方生日
+        "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
         "lucky2":{"value":lucky2(),"color":get_random_color()},  # 男方星座
         
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
