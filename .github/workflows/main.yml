@@ -26,6 +26,7 @@ jobs:
       APP_ID: ${{ secrets.APP_ID }}
       APP_SECRET: ${{ secrets.APP_SECRET }}
       TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+      TEMPLATE_ID2: ${{ secrets.TEMPLATE_ID2 }}
       USER_ID: ${{ secrets.USER_ID }} # 女方微信假id
       USER_ID2: ${{ secrets.USER_ID2 }} # 男方微信假id
       START_DATE: ${{ secrets.START_DATE }} # 恋爱开始日
