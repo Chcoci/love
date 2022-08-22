@@ -26,9 +26,13 @@ jobs:
       APP_ID: ${{ secrets.APP_ID }}
       APP_SECRET: ${{ secrets.APP_SECRET }}
       TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
-      USER_ID: ${{ secrets.USER_ID }}
-      START_DATE: ${{ secrets.START_DATE }}
-      BIRTHDAY: ${{ secrets.BIRTHDAY }}
-      CITY: ${{ secrets.CITY }}
-      ASTRO: ${{ secrets.ASTRO }}
-      API_KEY_LUCKY: ${{ secrets.API_KEY_LUCKY }}
+      USER_ID: ${{ secrets.USER_ID }} # 女方微信假id
+      USER_ID2: ${{ secrets.USER_ID2 }} # 男方微信假id
+      START_DATE: ${{ secrets.START_DATE }} # 恋爱开始日
+      BIRTHDAY: ${{ secrets.BIRTHDAY }} # 女方生日
+      BIRTHDAY2: ${{ secrets.BIRTHDAY2 }} # 男方生日
+      CITY: ${{ secrets.CITY }} # 女方城市
+      CITY2: ${{ secrets.CITY2 }} # 男方城市
+      ASTRO: ${{ secrets.ASTRO }} # 女方星座
+      ASTRO2: ${{ secrets.ASTRO2 }} # 男方星座
+      API_KEY_LUCKY: ${{ secrets.API_KEY_LUCKY }} 
