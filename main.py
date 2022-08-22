@@ -74,19 +74,27 @@ def health():
         return ""
 
 #星座运势
+# def lucky():
+#     if (API_KEY_LUCKY!="否"):
+#         conn = http.client.HTTPSConnection('api.tianapi.com')  #接口域名
+#         params = urllib.parse.urlencode({'key':API_KEY_LUCKY,'astro':astro})
+#         headers = {'Content-type':'application/x-www-form-urlencoded'}
+#         conn.request('POST','/star/index',params,headers)
+#         res = conn.getresponse()
+#         data = res.read()
+#         data = json.loads(data)
+#         data = "\n爱情指数："+str(data["newslist"][1]["content"])+"   工作指数："+str(data["newslist"][2]["content"])+"\n今日概述："+str(data["newslist"][8]["content"])
+#         return data
+#     else:
+#         return ""
+
+
 def lucky():
-    if (API_KEY_LUCKY!="否"):
-        conn = http.client.HTTPSConnection('api.tianapi.com')  #接口域名
-        params = urllib.parse.urlencode({'key':API_KEY_LUCKY,'astro':astro})
-        headers = {'Content-type':'application/x-www-form-urlencoded'}
-        conn.request('POST','/star/index',params,headers)
-        res = conn.getresponse()
-        data = res.read()
-        data = json.loads(data)
-        data = "\n爱情指数："+str(data["newslist"][1]["content"])+"   工作指数："+str(data["newslist"][2]["content"])+"\n今日概述："+str(data["newslist"][8]["content"])
-        return data
-    else:
-        return ""
+  url = "http://api.tianapi.com/star/index?key=" + API_KEY_LUCKY +"&astro="+astro
+  res = requests.get(url).json()
+  data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+  return data
+
 
 #励志名言
 def lizhi():
