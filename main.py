@@ -48,7 +48,9 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature,low,high = get_weather()
-data = {"weather":{"value":wea,"color":get_random_color()}, #温度
+data = {
+        "today":{"value":today}, #今天日期
+        "weather":{"value":wea,"color":get_random_color()}, #温度
         "temperature":{"value":temperature,"color":get_random_color()},
         "low":{"value":low,"color":get_random_color()},
         "high":{"value":high,"color":get_random_color()},
