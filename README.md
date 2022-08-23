@@ -4,7 +4,7 @@
 
 ## 需要用到的全局变量（在Setting->Secrets->Action->New repository secret）中添加变量名和Value值
 
-### API_KEY_LUCKY 星座API的Key，在（https://www.tianapi.com）申请
+### API_KEY_LUCKY 星座API的Key，申请在 https://www.tianapi.com
 
 ### APP_ID  微信测试公众号的的APP_id
 
