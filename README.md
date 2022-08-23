@@ -31,3 +31,13 @@
 ### USER_ID 女方用户ID
 
 ### USER_ID2 男方用户ID
+
+微信模板内容示例：
+宝贝~ 今天是 {{today.DATA}} 
+{{city.DATA}}今日天气: {{weather.DATA,color.DATA}} {{wind.DATA,color.DATA}} 
+当前气温: {{temperature.DATA,color.DATA}} ℃ 
+今日温度: {{low.DATA}}~{{high.DATA,color.DATA}} ℃ 
+在一起已经 {{love_days.DATA,color.DATA}} 天啦
+距离宝贝生日还有 {{birthday_left.DATA,color.DATA}} 天 
+距离我的生日还有 {{birthday_left2.DATA,color.DATA}} 天 
+{{words.DATA,color.DATA}} {{lucky.DATA,color.DATA}}
