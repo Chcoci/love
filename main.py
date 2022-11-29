@@ -109,6 +109,19 @@ def lucky2(): # 男方星座
   data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
   return data
 
+# def lucky(): # 女方星座
+#   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
+#   res = requests.get(url).json()
+#   data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+#   return data
+
+# def lucky2(): # 男方星座
+#   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
+#   res = requests.get(url).json()
+#   data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+#   return data
+
+
 #励志名言
 def lizhi():
     if (lizhi_API!="否"):
@@ -211,6 +224,8 @@ data = {"city":{"value":city},
 
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+#          "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
+        
 }
 data2 = {"city":{"value":city2},
         "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
