@@ -97,29 +97,29 @@ def week(a):
     if a==6:data = "日"
     return data
 
-def lucky(): # 女方星座
-  url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
-  res = requests.get(url).json()
-  data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
-  return data
-
-def lucky2(): # 男方星座
-  url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
-  res = requests.get(url).json()
-  data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
-  return data
-
 # def lucky(): # 女方星座
 #   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
 #   res = requests.get(url).json()
-#   data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+#   data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
 #   return data
 
 # def lucky2(): # 男方星座
 #   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
 #   res = requests.get(url).json()
-#   data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+#   data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
 #   return data
+
+def lucky(): # 女方星座
+  url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
+  res = requests.get(url).json()
+  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+  return data
+
+def lucky2(): # 男方星座
+  url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
+  res = requests.get(url).json()
+  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+  return data
 
 
 #励志名言
@@ -223,8 +223,8 @@ data = {"city":{"value":city},
          "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
 
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
-        "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
-#          "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
+#         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+         "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
         
 }
 data2 = {"city":{"value":city2},
@@ -241,7 +241,8 @@ data2 = {"city":{"value":city2},
          "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
         "lucky2":{"value":lucky2(),"color":get_random_color()},  # 男方星座
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
-        "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+#         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+         "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
 }
 
 
