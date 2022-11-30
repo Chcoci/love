@@ -112,13 +112,13 @@ def week(a):
 def lucky(): # 女方星座
   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
   res = requests.get(url).json()
-  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述：今天宝宝们也许会有意外之喜，单身的宝宝们可能会收获爱情呢，有伴侣的宝宝们今天可能也会有甜蜜时刻哦~今天还要注意多补水哦"
   return data
 
 def lucky2(): # 男方星座
   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
   res = requests.get(url).json()
-  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+  data = "\n爱情指数：99%"+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述：今天宝宝们也许会有意外之喜，单身的宝宝们可能会收获爱情呢，有伴侣的宝宝们今天可能也会有甜蜜时刻哦~今天还要注意多补水哦"
   return data
 
 
