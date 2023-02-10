@@ -173,7 +173,7 @@ bodys['token'] = '''46e13b7aab9bb77ee3358c3b672a2ae4'''
 post_data = urllib.urlencode(bodys)
 request = urllib2.Request(url, post_data)
 request.add_header('Authorization', 'APPCODE ' + appcode)
-//根据API的要求，定义相对应的Content-Type
+# 根据API的要求，定义相对应的Content-Type
 request.add_header('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
