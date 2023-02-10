@@ -5,8 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
-import urllib, urllib2, sys
-import ssl
+
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
