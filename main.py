@@ -77,7 +77,7 @@ def get_random_color():
 
 client = WeChatClient(app_id, app_secret)
 get_count()
-printf(today.weekday())
+print(today.weekday())
 wm = WeChatMessage(client)
 # wea,temperature,low,high,dates,wind = get_weather()
 # wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
