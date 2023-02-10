@@ -78,9 +78,9 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 # wea,temperature,low,high,dates,wind = get_weather()
 # wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
-week_math = datetime.strptime(start_date,"%Y-%m-%d").weekday()
+week_math = datetime.strptime(today,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
-        "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
+        "today":{"value":today + " 星期" + week(week_math)}, #今天日期
 
         "lucky":{"value":lucky(),"color":get_random_color()}, # 女方星座
         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
@@ -98,7 +98,7 @@ data = {"city":{"value":city},
         
 }
 data2 = {"city":{"value":city2},
-        "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
+        "today":{"value":today + " 星期" + week(week_math)}, #今天日期
         
 
         
