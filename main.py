@@ -12,7 +12,7 @@ app_secret = os.environ["APP_SECRET"]
 template_id = os.environ["TEMPLATE_ID"]
 template_id2 = os.environ["TEMPLATE_ID2"]
 today = datetime.now()
-print(today)
+print("++++++今日++++++： " + today)
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 city2 = os.environ['CITY2']
