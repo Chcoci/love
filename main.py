@@ -41,7 +41,7 @@ def lucky(): # 女方星座
    url = "https://api.vvhan.com/api/horoscope?type="+astro+"&time=nextday"
    res = requests.get(url).json()
    data = "\n爱情指数："+str(res["fortune"]["love"])
-print(data)
+   print(data)
    return data
 
 # def lucky(): # 女方星座
