@@ -225,8 +225,8 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea,temperature,low,high,dates,wind = get_weather()
-wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
+# wea,temperature,low,high,dates,wind = get_weather()
+# wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
 week_math = datetime.strptime(dates,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
         "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
