@@ -84,7 +84,7 @@ wm = WeChatMessage(client)
 # week_math = datetime.strptime(today,"%Y-%m-%d").weekday()
 now_date = datetime.now().strftime('%Y-%m-%d')
 data = {"city":{"value":city},
-        "today":{"value":now_date + " 星期" + week(today.weekday()+1)}, #今天日期
+        "today":{"value":now_date + " 星期" + week(today.weekday())}, #今天日期
 
         "lucky":{"value":lucky(),"color":get_random_color()}, # 女方星座
         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
@@ -102,7 +102,7 @@ data = {"city":{"value":city},
         
 }
 data2 = {"city":{"value":city2},
-        "today":{"value":now_date + " 星期" + week(today.weekday()+1)}, #今天日期
+        "today":{"value":now_date + " 星期" + week(today.weekday())}, #今天日期
         
 
         
