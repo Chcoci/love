@@ -160,46 +160,46 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
 
 
 
-host = 'https://freecityid.market.alicloudapi.com'
-path = '/whapi/json/alicityweather/briefcondition'
-method = 'POST'
-appcode = 'bd755a41eb7645a79c693f807d46d00f'
-querys = ''
-bodys = {}
-url = host + path
+# host = 'https://freecityid.market.alicloudapi.com'
+# path = '/whapi/json/alicityweather/briefcondition'
+# method = 'POST'
+# appcode = 'bd755a41eb7645a79c693f807d46d00f'
+# querys = ''
+# bodys = {}
+# url = host + path
 
-bodys['cityId'] = city
-bodys['token'] = '''46e13b7aab9bb77ee3358c3b672a2ae4'''
-post_data = urllib.urlencode(bodys)
-request = urllib2.Request(url, post_data)
-request.add_header('Authorization', 'APPCODE ' + appcode)
-# 根据API的要求，定义相对应的Content-Type
-request.add_header('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-response = urllib2.urlopen(request, context=ctx)
-content = response.read()
-if (content):
-    print(content)
+# bodys['cityId'] = city
+# bodys['token'] = '''46e13b7aab9bb77ee3358c3b672a2ae4'''
+# post_data = urllib.urlencode(bodys)
+# request = urllib2.Request(url, post_data)
+# request.add_header('Authorization', 'APPCODE ' + appcode)
+# # 根据API的要求，定义相对应的Content-Type
+# request.add_header('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+# response = urllib2.urlopen(request, context=ctx)
+# content = response.read()
+# if (content):
+#     print(content)
     
-def get_weather(): # 女方天气
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
-  dates = weather['date']
-  return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
+# def get_weather(): # 女方天气
+#   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+#   res = requests.get(url).json()
+#   weather = res['data']['list'][0]
+#   dates = weather['date']
+#   return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
 
-def get_weather2(): #男方天气
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city2
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
-  dates = weather['date']
-  return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
+# def get_weather2(): #男方天气
+#   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city2
+#   res = requests.get(url).json()
+#   weather = res['data']['list'][0]
+#   dates = weather['date']
+#   return weather['weather'], math.floor(weather['temp']),math.floor(weather['low']),math.floor(weather['high']),dates,weather['wind']
  
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
-  return delta.days
+  return delta.days + 1
 
 def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
@@ -232,11 +232,11 @@ week_math = datetime.strptime(dates,"%Y-%m-%d").weekday()
 data = {"city":{"value":city},
         "today":{"value":dates + " 星期" + week(week_math)}, #今天日期
         
-        "weather":{"value":wea,"color":get_random_color()}, # 女方天气
-        "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
-        "temperature":{"value":temperature,"color":get_random_color()}, # 女方天气气温
-        "low":{"value":low,"color":get_random_color()}, # 女方天气低温
-        "high":{"value":high,"color":get_random_color()}, # 女方天气高温
+#         "weather":{"value":wea,"color":get_random_color()}, # 女方天气
+#         "wind":{"value":wind,"color":get_random_color()}, # 女方天气风级
+#         "temperature":{"value":temperature,"color":get_random_color()}, # 女方天气气温
+#         "low":{"value":low,"color":get_random_color()}, # 女方天气低温
+#         "high":{"value":high,"color":get_random_color()}, # 女方天气高温
         "lucky":{"value":lucky(),"color":get_random_color()}, # 女方星座
         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
          "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
@@ -251,11 +251,11 @@ data2 = {"city":{"value":city2},
         
 
         
-        "weather2":{"value":wea2,"color":get_random_color()}, # 男方天气
-        "wind2":{"value":wind2,"color":get_random_color()}, # 男方天气风级
-        "temperature2":{"value":temperature2,"color":get_random_color()}, # 男方天气气温
-        "low2":{"value":low2,"color":get_random_color()}, # 男方天气低温
-        "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
+#         "weather2":{"value":wea2,"color":get_random_color()}, # 男方天气
+#         "wind2":{"value":wind2,"color":get_random_color()}, # 男方天气风级
+#         "temperature2":{"value":temperature2,"color":get_random_color()}, # 男方天气气温
+#         "low2":{"value":low2,"color":get_random_color()}, # 男方天气低温
+#         "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
         "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
          "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
         "lucky2":{"value":lucky2(),"color":get_random_color()},  # 男方星座
