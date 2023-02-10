@@ -5,6 +5,8 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
+import urllib, urllib2, sys
+import ssl
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -155,6 +157,32 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
     week = week_list[today.isoweekday() % 7]
     # 获取在一起的日子的日期格式
 
+
+
+
+host = 'https://freecityid.market.alicloudapi.com'
+path = '/whapi/json/alicityweather/briefcondition'
+method = 'POST'
+appcode = 'bd755a41eb7645a79c693f807d46d00f'
+querys = ''
+bodys = {}
+url = host + path
+
+bodys['cityId'] = city
+bodys['token'] = '''46e13b7aab9bb77ee3358c3b672a2ae4'''
+post_data = urllib.urlencode(bodys)
+request = urllib2.Request(url, post_data)
+request.add_header('Authorization', 'APPCODE ' + appcode)
+//根据API的要求，定义相对应的Content-Type
+request.add_header('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+response = urllib2.urlopen(request, context=ctx)
+content = response.read()
+if (content):
+    print(content)
+    
 def get_weather(): # 女方天气
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
