@@ -1,5 +1,5 @@
 from datetime import date, datetime
-import math
+import math 
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
@@ -53,7 +53,7 @@ def lucky(): # 女方星座
 def lucky2(): # 男方星座
    url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
    res = requests.get(url).json()
-   data = "\n爱情指数："+str(res["newslist"][1]["content"])+"   工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"   健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+   data = "\n爱情指数："+str(res["newslist"][1]["content"])+"\t工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"\t健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
    return data
 
 
@@ -109,6 +109,7 @@ data = {"city":{"value":city},
      #    "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
         
 }
+
 data2 = {"city":{"value":city2},
         "today":{"value":now_date + " 星期" + week(today.weekday())}, #今天日期
 #         "weather2":{"value":wea2,"color":get_random_color()}, # 男方天气
