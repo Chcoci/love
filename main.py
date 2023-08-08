@@ -12,8 +12,6 @@ app_secret = os.environ["APP_SECRET"]
 template_id = os.environ["TEMPLATE_ID"]
 template_id2 = os.environ["TEMPLATE_ID2"]
 today = datetime.now()
-#print("++++++今日++++++： ")
-#print(today)
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 city2 = os.environ['CITY2']
@@ -36,13 +34,6 @@ def week(a):
     if a==5:data = "六"
     if a==6:data = "日"
     return data
-
-# def lucky(): # 女方星座
-#    url = "https://api.vvhan.com/api/horoscope?type="+astro+"&time=nextday"
-#    res = requests.get(url).json()
-#    data = "\n爱情指数："+str(res["fortune"]["love"])
-#    print(data)
-#    return data
 
 def lucky(): # 女方星座
    url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro
@@ -119,7 +110,7 @@ data2 = {"city":{"value":city2},
 #         "high2":{"value":high2,"color":get_random_color()}, # 男方天气高温
         "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
          "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
-        "lucky2":{"value":lucky2(),"color":get_random_color()},  # 男方星座
+        "lucky2":{"value":"92649898","color":get_random_color()},  # 男方星座
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
          "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
       #   "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
