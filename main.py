@@ -46,8 +46,19 @@ def lucky2(): # 男方星座
    res = requests.get(url).json()
    data = "爱情指数："+str(res["newslist"][1]["content"]) + "  工作指数："+str(res["newslist"][2]["content"])
    return data
-# "\n爱情指数："+str(res["newslist"][1]["content"])+"\t工作指数："+str(res["newslist"][2]["content"])+"\n财运指数："+str(res["newslist"][3]["content"])+"\t健康指数："+str(res["newslist"][4]["content"])+"\n今日概述："+str(res["newslist"][8]["content"])
+# "\n爱情指数："+str(res["newslist"][1]["content"])+"\t工作指数："+str(res["newslist"][2]["content"])+
 
+def lucky2_2(): # 男方星座
+   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
+   res = requests.get(url).json()
+   data = "\n财运指数："+str(res["newslist"][3]["content"])+"\t健康指数："+str(res["newslist"][4]["content"])
+   return data
+def lucky2_3(): # 男方星座 今日概况
+   url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
+   res = requests.get(url).json()
+   data = str(res["newslist"][8]["content"])
+   return data    
+    
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
   return delta.days + 1
@@ -92,7 +103,9 @@ data2 = {
          "words":{"value":get_words()}, #彩虹屁
         "birthday_left2":{"value":get_birthday2()}, # 男方生日
          "birthday_left":{"value":get_birthday()}, # 女方生日
-        "lucky2":{"value":lucky2()},  # 男方星座
+        "lucky2":{"value":lucky2()},  # 男方星座指数1
+        "lucky2_2":{"value":lucky2_2()},  # 男方星座指数2
+        "lucky2_3":{"value":lucky2_3()},  # 男方星座今日概况
         "love_days":{"value":get_count()}, # 恋爱日
 
       #   "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
