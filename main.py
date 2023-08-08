@@ -112,7 +112,7 @@ data2 = {"city":{"value":city2},
          "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
         "lucky2":{"value":"92649898","color":get_random_color()},  # 男方星座
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
-         "words":{"value":get_words(), "color":get_random_color()} #彩虹屁
+         "words":{"value":"word_92649898", "color":get_random_color()} #彩虹屁
       #   "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
 }
 
