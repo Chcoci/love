@@ -102,6 +102,7 @@ data = {"city":{"value":city},
 
 data2 = {"city":{"value":city2},
         "today":{"value":now_date + " 星期" + week(today.weekday())}, #今天日期
+         "words":{"value":"word_92649898", "color":get_random_color()} #彩虹屁
 #         "weather2":{"value":wea2,"color":get_random_color()}, # 男方天气
 #         "wind2":{"value":wind2,"color":get_random_color()}, # 男方天气风级
 #         "temperature2":{"value":temperature2,"color":get_random_color()}, # 男方天气气温
@@ -112,7 +113,7 @@ data2 = {"city":{"value":city2},
        # "lucky2":{"value":"92649898","color":get_random_color()},  # 男方星座
       #   "words_star":{"value":"words_star_92649898","color":get_random_color()},
         "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
-         "words":{"value":"word_92649898", "color":get_random_color()} #彩虹屁
+
       #   "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
 }
 
