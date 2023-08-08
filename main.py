@@ -51,7 +51,7 @@ def lucky2(): # 男方星座
 def lucky2_2(): # 男方星座
    url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
    res = requests.get(url).json()
-   data = "\n财运指数："+str(res["newslist"][3]["content"])+"\t健康指数："+str(res["newslist"][4]["content"])
+   data = "财运指数："+str(res["newslist"][3]["content"])+"  健康指数："+str(res["newslist"][4]["content"])
    return data
 # def lucky2_3(): # 男方星座 今日概况
 #    url = "http://api.tianapi.com/star/index?key=" + api_key_lucky +"&astro="+astro2
