@@ -89,11 +89,11 @@ data = {
 
 data2 = {
         "today":{"value":now_date + " 星期" + week(today.weekday())}, #今天日期
-         "words":{"value":get_words(), "color":get_random_color()}, #彩虹屁
-        "birthday_left2":{"value":get_birthday2(),"color":get_random_color()}, # 男方生日
-         "birthday_left":{"value":get_birthday(),"color":get_random_color()}, # 女方生日
-        "lucky2":{"value":"92649898","color":get_random_color()},  # 男方星座
-        "love_days":{"value":get_count(),"color":get_random_color()}, # 恋爱日
+         "words":{"value":get_words()}, #彩虹屁
+        "birthday_left2":{"value":get_birthday2()}, # 男方生日
+         "birthday_left":{"value":get_birthday()}, # 女方生日
+        "lucky2":{"value":lucky2()},  # 男方星座
+        "love_days":{"value":get_count()}, # 恋爱日
 
       #   "words":{"value":"日出东方落于西，朝思暮想念于你", "color":get_random_color()} #彩虹屁
 }
