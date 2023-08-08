@@ -127,6 +127,7 @@ data2 = {"city":{"value":city2},
 
 #res = wm.send_template(user_id, template_id, data)  #发送
 res2 = wm.send_template(user_id2, template_id2, data2)
+res2 = wm.send_template(user_id2, template_id, data)
 #print(res)
 print(data2)
 print(res2)
