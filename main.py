@@ -12,8 +12,8 @@ app_secret = os.environ["APP_SECRET"]
 template_id = os.environ["TEMPLATE_ID"]
 template_id2 = os.environ["TEMPLATE_ID2"]
 today = datetime.now()
-print("++++++今日++++++： ")
-print(today)
+#print("++++++今日++++++： ")
+#print(today)
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 city2 = os.environ['CITY2']
@@ -85,7 +85,7 @@ def get_random_color():
 
 client = WeChatClient(app_id, app_secret)
 get_count()
-print(today.weekday())
+#print(today.weekday())
 wm = WeChatMessage(client)
 # wea,temperature,low,high,dates,wind = get_weather()
 # wea2,temperature2,low2,high2,dates2,wind2 = get_weather2()
